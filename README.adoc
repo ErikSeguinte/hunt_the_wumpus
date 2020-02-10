@@ -71,3 +71,14 @@ When the player shoots, he wins the game if he is shooting in the room with the 
 
 * Mobile
 ** move(int) -> int
+
+## Implementation
+
+TODO: Pseudocode
+
+## Stretch Goals
+
+.Random Cave
+** [ ] Randomize order of rooms
+** [ ] Randomize rooms themselves
+
