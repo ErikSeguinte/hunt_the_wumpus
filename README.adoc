@@ -33,3 +33,36 @@ Whenever the player enters a room, he "senses" what happens in adjacent rooms. T
 
 When the player shoots, he wins the game if he is shooting in the room with the Wumpus. If he shoots into another room, the Wumpus has a 75% of chance of waking up and moving into an adjacent room: if this is the room with the player, he eats him up and the game is lost. 
 
+## Class Diagram
+* class Main
+** cave: Cave
+** player: Player
+
+* class Player
+** num_arrows: int
+** current_room: Room
+** adjacent_room: List[Room]
+** move(Room)
+** shoot(Room) 
+** game_over_arrows()
+** game_over()
+
+* class Cave
+** rooms: List[Room]
+** populate_cave() -> Room
+
+* class Room
+** label: int
+** adjacent_rooms: List[int]
+** visited: Bool
+** description: str
+** contents: List(Hazard)
+** enter() -> str
+
+* class Hazard
+** nearby_description: str
+** mobile: Mobile
+** act() -> bool
+
+* Mobile
+** move(int) -> int
