@@ -38,6 +38,10 @@ When the player shoots, he wins the game if he is shooting in the room with the 
 * class Main
 ** cave: Cave
 ** player: Player
+** run_game_loop()
+** get_input(valid_responses: List[str]) -> str
+** validate_input(valid_respnses: List[str], str) -> bool
+*** Throws ValueError
 
 * class Player
 ** num_arrows: int
