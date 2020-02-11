@@ -14,11 +14,41 @@ class Main:
         raise NotImplementedError
 
     def get_input(self, valid_responses: List[str]) -> str:
+        while True:
+            choice = input('What do you do?\n')
+            try:
+                self.validate_input(valid_responses, choice)
+            except ValueError:
+                print("I don't know what that means. Try again.")
+                continue
+            else:
+                print('choice accepted')
+                break
+
+    @staticmethod
+    def validate_input(valid_responses: List[str], choice:str) -> str:
+        if choice not in valid_responses:
+            raise ValueError
+
+    def game_start(self):
+        self.run_game_loop()
+
+class Room:
+
+    def __init__(self, label:int):
+        self.label = label
+        self.adjacent_rooms = None
+        self.visited = False
+        self.description = self.assign_description()
+        self.contents = None
+
+    @staticmethod
+    def assign_description() -> str:
+        return "Room Description"
+
+    def enter(self):
         raise NotImplementedError
 
-    def validate_input(self, valid_responses: List[str]) -> str:
-        raise NotImplementedError
-        raise ValueError
 
 class Player:
 
@@ -33,23 +63,9 @@ class Player:
     def shoot(self, room:Room):
         raise NotImplementedError
 
-    def game_over(self)
+    def game_over(self):
         raise NotImplementedError
 
-class Room:
-
-    def __init__(self, label:int):
-        self.label = label
-        self.adjacent_rooms = None
-        self.visited = False
-        self.description = self.assign_description()
-        self.contents = None
-
-    def assign_description(self) -> str:
-        return "Room Description"
-
-    def enter(self):
-        raise NotImplementedError
 
 class Cave:
 
@@ -80,4 +96,5 @@ class Mobile(Hazard):
 
 if __name__ == "__main__":
     main = Main()
-    main.run_game_loop()
+    main.get_input({'hello', 'world'})
+
