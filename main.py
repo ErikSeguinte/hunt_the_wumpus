@@ -24,9 +24,10 @@ class Main:
             else:
                 print('choice accepted')
                 break
+        return choice
 
     @staticmethod
-    def validate_input(valid_responses: List[str], choice:str) -> str:
+    def validate_input(valid_responses: List[str], choice:str):
         if choice not in valid_responses:
             raise ValueError
 
@@ -72,8 +73,9 @@ class Cave:
     def __init__(self):
         self.rooms = None
 
-    def populate_rooms(self, map):
-        raise NotImplementedError
+    def populate_rooms(self, map = None):
+        self.rooms = [Room(i) for i in range(20)]
+        print(self.rooms)
 
 class Hazard:
 
@@ -96,5 +98,10 @@ class Mobile(Hazard):
 
 if __name__ == "__main__":
     main = Main()
-    main.get_input({'hello', 'world'})
+    choice = main.get_input({'hello', 'world'})
+    print(f'Your choice was: {choice}')
+
+    cave = Cave()
+    cave.populate_rooms()
+
 
