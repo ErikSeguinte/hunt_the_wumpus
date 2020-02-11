@@ -1,5 +1,8 @@
 from typing import List, Tuple
 
+class BaseGameException(BaseException): pass
+class GameOver(BaseGameException): pass
+
 
 class Main:
 
